@@ -88,14 +88,13 @@ while(true)
     				logger("## Depth " . $depth);
     				logger("## Quantidade " . $total);    				
     				logger("## Valor " . $lastRate);
-    				
-    				//BTCQ 1969.95658484
+    				    				
     				$response   = $api->newOrder("buy", "BTC-BTCQ", "LIMIT", $lastRate, $total);
     				var_dump($response);    				
 
     				$response = $api->balance("BTCQ");
 					var_dump($response);
-					$balance = $total;//$response->available;
+					$balance = $response->available;
 
 					$valorSELL = round( ($lastRate) + (($lastRate*(($fee*2))+$percentProfit)/100),8);					
 					
